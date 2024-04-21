@@ -73,8 +73,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(to bottom, #4d9ed1 30%, #ffffff); /* Degradado vertical de azul a blanco, comenzando en el 30% */
-    transition: background-image 0.8s ease; /* Transición suave para el cambio de fondo, más lenta */
+    background-image: linear-gradient(to bottom, #4d9ed1 70%, #ffffff); /* Degradado vertical de azul a blanco, comenzando en el 30% */
+    transition: background-image 0.7s ease; /* Transición suave para el cambio de fondo, más lenta */
 }
 
 #darkModeOverlay {
@@ -165,6 +165,18 @@ button {
     align-items: center;
 }
 
+.forecast-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.forecast-table th, .forecast-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+
 
 @media only screen and (max-width: 768px) {
     .search-bar {
@@ -190,7 +202,23 @@ button {
     }
 
     .weather-container {
-        width: 80%; /* Hacer que el contenedor del clima ocupe todo el ancho */
+            width: 80%;
+            margin-top: 30%; /* Agrega un margen superior para separar del encabezado */
+            overflow-y: auto; /* Agrega desplazamiento vertical si el contenido es demasiado grande */
+        }/* Hacer que el contenedor del clima ocupe todo el ancho */
+    
+}
+@media only screen and (max-width: 450px) {
+    .weather-container {
+        width: 80%;
+        margin-top: 50%; /* Agrega un margen superior para separar del encabezado */
+    }
+}
+@media only screen and (max-width: 380px) {
+    .weather-container {
+        width: 80%;
+        margin-bottom: 20%;
+        margin-top: 70%;
     }
 }
 

@@ -16,18 +16,42 @@ function buscarClima() {
     const ciudad = document.getElementById('cityInput').value;
     if (ciudad) {
         const apiKey = '96cf0172202e4b5f875154310242104'; // Coloca tu API key de WeatherAPI.com
-        const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${ciudad}`;
+        const url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${ciudad}&days=3`;
 
         fetch(url)
             .then(response => response.json())
             .then(data => {
-                const weatherData = data.current;
+                const currentWeather = data.current;
+                const forecast = data.forecast.forecastday.slice(0, 3); // Obtener pronóstico de los últimos 3 días
+
+                // Mostrar el clima actual
                 const weatherResult = document.getElementById('weatherResult');
                 weatherResult.innerHTML = `
                     <h2>Clima en ${ciudad}</h2>
-                    <p>Temperatura: ${weatherData.temp_c}°C</p>
-                    <p>Condiciones: ${weatherData.condition.text}</p>
+                    <p>Temperatura actual: ${currentWeather.temp_c}°C</p>
+                    <p>Condiciones actuales: ${currentWeather.condition.text}</p>
                 `;
+
+                // Mostrar el pronóstico para los próximos 3 días
+                weatherResult.innerHTML += '<h3>Pronóstico para los próximos 3 días:</h3>';
+                forecast.forEach(day => {
+                    weatherResult.innerHTML += `
+                        <table class="forecast-table">
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Máxima</th>
+                                <th>Mínima</th>
+                                <th>Condiciones</th>
+                            </tr>
+                            <tr>
+                                <td>${day.date}</td>
+                                <td>${day.day.maxtemp_c}°C</td>
+                                <td>${day.day.mintemp_c}°C</td>
+                                <td>${day.day.condition.text}</td>
+                            </tr>
+                        </table>
+                    `;
+                });
 
                 // Mostrar el contenedor de clima y mantener la barra de búsqueda en la parte superior
                 const searchBar = document.getElementById("searchBar");
@@ -47,6 +71,8 @@ function buscarClima() {
         alert('Por favor, introduce una ciudad.');
     }
 }
+
+
 
 function toggleDarkMode() {
     const body = document.body;
