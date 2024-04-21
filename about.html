@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre nosotros - Consulta de Clima</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .content {
+            max-width: 800px; /* Ancho máximo del contenido */
+            margin: 50px auto; /* Margen superior e inferior de 50px y centrado horizontal */
+            padding: 0 20px; /* Espaciado interno de 20px */
+            color: #26465a; /* Color de texto */
+        }   
+        .dark-mode .content{
+            color: #291f1f; /* Color de texto */
+        }    
+        @media only screen and (max-width: 768px) {
+            .content {
+                width: 80%;
+                margin-top: 50px; /* Agrega un margen superior para separar del encabezado */
+                overflow-y: auto; /* Agrega desplazamiento vertical si el contenido es demasiado grande */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="darkModeOverlay"></div>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" width="50px" alt="Logo">
+        </div>
+        <button style="background-color: #FFA800;margin-left: 5%;" onclick="toggleDarkMode()">☀</button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">Sobre Nosotros</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content glassmorphic-container">
+        <h1><b>Sobre Nosotros</b></h1>
+        <p>Somos una empresa especializada en el <b>pronóstico del tiempo</b> y la <b>predicción meteorológica</b>. Con <b>años de experiencia</b> en el campo, ofrecemos servicios de consulta de clima precisos y confiables para satisfacer las necesidades de nuestros clientes.</p>
+        <p>Nuestro equipo de meteorólogos <b>altamente cualificados</b> utiliza las últimas tecnologías y datos científicos para proporcionar pronósticos meteorológicos <b>precisos y actualizados</b> en tiempo real. Ya sea para planificar actividades al aire libre, tomar decisiones comerciales o simplemente estar preparado para cualquier cambio en las condiciones climáticas, estamos aquí para <b>ayudarte</b>.</p>
+        <p>En nuestra empresa, valoramos la <b>precisión, la fiabilidad y la satisfacción</b> del cliente. Nos esforzamos por ofrecer el mejor servicio posible y mantenernos a la vanguardia de la industria meteorológica.</p>
+    </div>
+    
+    <footer>
+        <p>Copyright by Ivan</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

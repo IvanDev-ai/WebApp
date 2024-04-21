@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre nosotros - Consulta de Clima</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .content {
+            max-width: 800px; /* Ancho máximo del contenido */
+            margin: 50px auto; /* Margen superior e inferior de 50px y centrado horizontal */
+            padding: 0 20px; /* Espaciado interno de 20px */
+            color: #26465a; /* Color de texto */
+        }        
+        .dark-mode .content{
+            color: #291f1f; /* Color de texto */
+        }   
+        @media only screen and (max-width: 768px) {
+            .content {
+                width: 80%;
+                margin-top: 50px; /* Agrega un margen superior para separar del encabezado */
+                overflow-y: auto; /* Agrega desplazamiento vertical si el contenido es demasiado grande */
+                max-height: calc(100vh - 100px); /* Establece la altura máxima para evitar que el contenido ocupe toda la pantalla */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="darkModeOverlay"></div>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" width="50px" alt="Logo">
+        </div>
+        <button style="background-color: #FFA800;margin-left: 5%;" onclick="toggleDarkMode()">☀</button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">Sobre Nosotros</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content glassmorphic-container">
+        <h1><b>Contacta Con Nosotros !</b></h1>
+        <p>¡Hola! ¿Tienes alguna <b>pregunta</b>, <b>comentario</b> o simplemente quieres <b>saludar</b>? ¡Nos encantaría saber de ti! En <b>MeteoExperts</b>, siempre estamos listos para <b>escucharte</b> y <b>ayudarte</b> en lo que necesites.</p>
+        <p>Para ponerte en contacto con nuestro equipo, aquí tienes nuestras coordenadas:</p>
+        <table>
+            <tr>
+                <td><b>Teléfono</b></td>
+                <td><b>Correo electrónico</b></td>
+                <td><b>Dirección</b></td>
+            </tr>
+            <tr>
+                <td>+123 456 789</td>
+                <td>info@meteoexperts.com</td>
+                <td>Calle del Clima, 123</td>
+            </tr>
+        </table>
+        <p>¡No dudes en <b>contactarnos</b> en cualquier momento! Estamos aquí para ti.</p>
+    </div>
+    
+    
+    <footer>
+        <p>Copyright by Ivan</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
