@@ -5,11 +5,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const weatherContainer = document.getElementById("weatherContainer");
 
     // Centrar la barra de búsqueda verticalmente en la mitad de la pantalla
-    searchBar.style.top = "40%"; // Posición vertical al 40%
-    searchBar.style.transform = "translateY(-50%)"; // Centrar verticalmente
+    searchBar.style.top = "40%"; 
+    searchBar.style.transform = "translateY(-50%)"; 
     // Centrar la barra de búsqueda horizontalmente en la pantalla
-    searchBar.style.left = "50%"; // Posición horizontal al 50%
-    searchBar.style.transform += "translateX(-50%)"; // Centrar horizontalmente
+    searchBar.style.left = "50%"; 
+    searchBar.style.transform += "translateX(-50%)";
 
     // Ocultar el contenedor de clima al inicio
     weatherContainer.style.display = "none";
@@ -21,7 +21,7 @@ function buscarClima() {
     const ciudad = document.getElementById('cityInput').value;
     if (ciudad) {
         // URL de la API para obtener el clima
-        const apiKey = '96cf0172202e4b5f875154310242104'; // Tu API key de WeatherAPI.com
+        const apiKey = '96cf0172202e4b5f875154310242104'; 
         const url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${ciudad}&days=3`;
 
         // Realizar la solicitud a la API
@@ -64,20 +64,20 @@ function buscarClima() {
                 // Mostrar el contenedor de clima y ajustar la posición de la barra de búsqueda
                 const searchBar = document.getElementById("searchBar");
                 const weatherContainer = document.getElementById("weatherContainer");
-                searchBar.style.top = "20px"; // Posicionar la barra de búsqueda a 20px del borde superior
+                searchBar.style.top = "20px"; 
                 searchBar.style.transform = "translateY(0)";
                 searchBar.style.left = "50%";
                 searchBar.style.transform += "translateX(-50%)";
                 weatherContainer.style.display = "flex";
             })
             .catch(error => {
-                // Manejar errores al obtener el clima
+                // Por si da error al hacer la solicitud 
                 console.error('Error al obtener el clima:', error);
                 const weatherResult = document.getElementById('weatherResult');
                 weatherResult.innerHTML = '<p>Ocurrió un error al obtener el clima. Por favor, intenta nuevamente.</p>';
             });
     } else {
-        // Alerta si no se ingresa una ciudad
+        // Alerta si no se escribe ninguna  ciudad
         alert('Por favor, introduce una ciudad.');
     }
 }
@@ -85,9 +85,9 @@ function buscarClima() {
 // Función para alternar el modo oscuro
 function toggleDarkMode() {
     const body = document.body;
-    body.classList.toggle('dark-mode'); // Alternar la clase 'dark-mode' en el cuerpo del documento
+    body.classList.toggle('dark-mode'); // Alternar la clase 'dark-mode' en el body, que hace que cambien todos, cambiando asi su bg-color y color
 
-    // Mostrar u ocultar el overlay oscuro dependiendo del modo
+    // Esto sirve para alternar de color el bgcolor del body, ya que, al ser un degradado de bg-image en el css, lo de arriba no lo cambiaría.
     const darkModeOverlay = document.getElementById('darkModeOverlay');
     darkModeOverlay.style.opacity = body.classList.contains('dark-mode') ? '0.5' : '0';
 }
