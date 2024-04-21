@@ -1,5 +1,5 @@
 # WeatherWeb
-WeatherNow es una aplicación web que te permite conocer el clima actual y el pronóstico para tu ubicación o cualquier otra ciudad del mundo.
+Es una web que te permite conocer el clima actual y el pronóstico para tu ubicación o cualquier otra ciudad del mundo.
 
 ## Características
 - Muestra el clima actual, incluyendo temperatura, descripción del clima.
