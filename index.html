@@ -1,43 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta de Clima</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura la vista para dispositivos móviles -->
+    <title>Consulta de Clima</title> <!-- Título de la página -->
+    <link rel="stylesheet" href="styles.css"> <!-- Enlaza la hoja de estilos externa -->
 </head>
 <body>
-    <div id="darkModeOverlay"></div>
+    <div id="darkModeOverlay"></div> <!-- Div para el modo oscuro -->
     <header>
         <div class="logo">
-            <img src="images/logo.png" width="50px" alt="Logo">
+            <img src="images/logo.png" width="50px" alt="Logo"> <!-- Logo de la página -->
         </div>
-        <button style="background-color: #FFA800;margin-left: 5%;" onclick="toggleDarkMode()">☀</button>
+        <button style="background-color: #FFA800;margin-left: 5%;" onclick="toggleDarkMode()">☀</button> <!-- Botón para cambiar entre modos claro y oscuro -->
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">Sobre Nosotros</a></li>
-                <li><a href="contact.html">Contacto</a></li>
+                <li><a href="index.html">Home</a></li> <!-- Enlace a la página principal -->
+                <li><a href="about.html">Sobre Nosotros</a></li> <!-- Enlace a la página "Sobre Nosotros" -->
+                <li><a href="contact.html">Contacto</a></li> <!-- Enlace a la página de contacto -->
             </ul>
         </nav>
     </header>
-    <div id="searchBar" class="search-bar glassmorphic-container">
+    <div id="searchBar" class="search-bar glassmorphic-container"> <!-- Barra de búsqueda -->
         <div class="cityInput-container">
-            <input type="text" id="cityInput" placeholder="Introduce una ciudad">
+            <input type="text" id="cityInput" placeholder="Introduce una ciudad"> <!-- Campo de entrada para la ciudad -->
         </div>
         <div class="input-container">
-            <button onclick="buscarClima()">Buscar</button>
+            <button onclick="buscarClima()">Buscar</button> <!-- Botón para buscar el clima -->
         </div>
     </div>
     
-    <div id="weatherContainer" class="weather-container glassmorphic-container" style="display: none;">
-        <div id="weatherResult" class="weather-result"></div>
+    <div id="weatherContainer" class="weather-container glassmorphic-container" style="display: none;"> <!-- Contenedor para mostrar los resultados del clima -->
+        <div id="weatherResult" class="weather-result"></div> <!-- Resultados del clima -->
     </div>
 
     <footer>
-        <p>Copyright by Ivan</p>
+        <p>Copyright by Ivan</p> <!-- Pie de página con información de derechos de autor -->
     </footer>
-    <script src="script.js"></script>
+    <script src="script.js"></script> <!-- Enlaza el archivo de script JavaScript -->
 </body>
-
 </html>

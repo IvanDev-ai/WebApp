@@ -1,28 +1,36 @@
+// Cuando el DOM está completamente cargado
 document.addEventListener("DOMContentLoaded", function() {
+    // Obtener elementos del DOM
     const searchBar = document.getElementById("searchBar");
     const weatherContainer = document.getElementById("weatherContainer");
 
-    // Centrar la barra de búsqueda en la mitad de la pantalla
-    searchBar.style.top = "40%";
-    searchBar.style.transform = "translateY(-50%)";
-    searchBar.style.left = "50%";
-    searchBar.style.transform += "translateX(-50%)";
+    // Centrar la barra de búsqueda verticalmente en la mitad de la pantalla
+    searchBar.style.top = "40%"; // Posición vertical al 40%
+    searchBar.style.transform = "translateY(-50%)"; // Centrar verticalmente
+    // Centrar la barra de búsqueda horizontalmente en la pantalla
+    searchBar.style.left = "50%"; // Posición horizontal al 50%
+    searchBar.style.transform += "translateX(-50%)"; // Centrar horizontalmente
 
-    // Ocultar el contenedor de clima
+    // Ocultar el contenedor de clima al inicio
     weatherContainer.style.display = "none";
 });
 
+// Función para buscar el clima
 function buscarClima() {
+    // Obtener el valor de la ciudad ingresada por el usuario
     const ciudad = document.getElementById('cityInput').value;
     if (ciudad) {
-        const apiKey = '96cf0172202e4b5f875154310242104'; // Coloca tu API key de WeatherAPI.com
+        // URL de la API para obtener el clima
+        const apiKey = '96cf0172202e4b5f875154310242104'; // Tu API key de WeatherAPI.com
         const url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${ciudad}&days=3`;
 
+        // Realizar la solicitud a la API
         fetch(url)
             .then(response => response.json())
             .then(data => {
+                // Obtener datos del clima actual y pronóstico
                 const currentWeather = data.current;
-                const forecast = data.forecast.forecastday.slice(0, 3); // Obtener pronóstico de los últimos 3 días
+                const forecast = data.forecast.forecastday.slice(0, 3); // Pronóstico para los próximos 3 días
 
                 // Mostrar el clima actual
                 const weatherResult = document.getElementById('weatherResult');
@@ -53,7 +61,7 @@ function buscarClima() {
                     `;
                 });
 
-                // Mostrar el contenedor de clima y mantener la barra de búsqueda en la parte superior
+                // Mostrar el contenedor de clima y ajustar la posición de la barra de búsqueda
                 const searchBar = document.getElementById("searchBar");
                 const weatherContainer = document.getElementById("weatherContainer");
                 searchBar.style.top = "20px"; // Posicionar la barra de búsqueda a 20px del borde superior
@@ -63,20 +71,21 @@ function buscarClima() {
                 weatherContainer.style.display = "flex";
             })
             .catch(error => {
+                // Manejar errores al obtener el clima
                 console.error('Error al obtener el clima:', error);
                 const weatherResult = document.getElementById('weatherResult');
                 weatherResult.innerHTML = '<p>Ocurrió un error al obtener el clima. Por favor, intenta nuevamente.</p>';
             });
     } else {
+        // Alerta si no se ingresa una ciudad
         alert('Por favor, introduce una ciudad.');
     }
 }
 
-
-
+// Función para alternar el modo oscuro
 function toggleDarkMode() {
     const body = document.body;
-    body.classList.toggle('dark-mode');
+    body.classList.toggle('dark-mode'); // Alternar la clase 'dark-mode' en el cuerpo del documento
 
     // Mostrar u ocultar el overlay oscuro dependiendo del modo
     const darkModeOverlay = document.getElementById('darkModeOverlay');
