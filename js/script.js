@@ -1,15 +1,31 @@
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+
+hamburger.addEventListener("click", mobileMenu);
+
+function mobileMenu() {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+}
+
+
+
+const navLink = document.querySelectorAll(".nav-link");
+
+navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+function closeMenu() {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+}
+
+
 // Cuando el DOM está completamente cargado
 document.addEventListener("DOMContentLoaded", function() {
     // Obtener elementos del DOM
     const searchBar = document.getElementById("searchBar");
     const weatherContainer = document.getElementById("weatherContainer");
 
-    // Centrar la barra de búsqueda verticalmente en la mitad de la pantalla
-    searchBar.style.top = "40%"; 
-    searchBar.style.transform = "translateY(-50%)"; 
-    // Centrar la barra de búsqueda horizontalmente en la pantalla
-    searchBar.style.left = "50%"; 
-    searchBar.style.transform += "translateX(-50%)";
 
     // Ocultar el contenedor de clima al inicio
     weatherContainer.style.display = "none";
@@ -61,13 +77,7 @@ function buscarClima() {
                     `;
                 });
 
-                // Mostrar el contenedor de clima y ajustar la posición de la barra de búsqueda
-                const searchBar = document.getElementById("searchBar");
                 const weatherContainer = document.getElementById("weatherContainer");
-                searchBar.style.top = "20px"; 
-                searchBar.style.transform = "translateY(0)";
-                searchBar.style.left = "50%";
-                searchBar.style.transform += "translateX(-50%)";
                 weatherContainer.style.display = "flex";
             })
             .catch(error => {
@@ -91,3 +101,21 @@ function toggleDarkMode() {
     const darkModeOverlay = document.getElementById('darkModeOverlay');
     darkModeOverlay.style.opacity = body.classList.contains('dark-mode') ? '0.5' : '0';
 }
+
+
+// Función para abrir el pop-up
+function openPopup() {
+    document.getElementById('loginPopup').style.display = 'block';
+}
+
+// Función para cerrar el pop-up
+function closePopup() {
+    document.getElementById('loginPopup').style.display = 'none';
+}
+
+// Escucha el clic en el botón de login/register
+document.getElementById('loginBtn').addEventListener('click', openPopup);
+
+
+
+

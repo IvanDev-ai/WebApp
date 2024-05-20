@@ -1,42 +1,96 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Consulta de Clima</title> 
-    <link rel="stylesheet" href="styles.css"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Clima</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="module" src="js/database.js" defer></script>
 </head>
+
 <body>
-    <div id="darkModeOverlay"></div> <!-- Div para el modo oscuro -->
+    <div id="darkModeOverlay"></div>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="images/logo.png" width="50px" alt="Logo">
+            </div>
+          <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="about.html">Sobre Nosotros</a>
+            </li>
+            <li class="nav-item">
+                <a href="contact.html">Contacto</a>
+            </li>
+            <li class="nav-item">
+                <div id="Header-buttons">
+                    <!-- Pop-up de login/register -->
+                    <button id="loginBtn" style="background-color: #c7c7c7; margin-right: 5%;">👤</button>
+                    <div id="loginPopup" class="popup glassmorphic-container">
+                        <div class="popup-content">
+                            <span class="close" onclick="closePopup()">&times;</span>
+                            <h2>Regístrate !</h2>
+                            <form id="loginForm">
+                                <input type="email" id="email" placeholder="Correo electrónico" required>
+                                <input type="password" id="password" placeholder="Contraseña" required>
+                                <button type="submit" id="submit" >Crear Cuenta</button>
+                                <a href="#">Ya tienes cuenta? - Login</button>
+                            </form>
+                        </div>
+                    </div>
+                    <button style="background-color: #FFA800; margin-left: 5%;" onclick="toggleDarkMode()">☀</button>
+                </div>
+            </li>
+          </ul>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </nav>
+      </header>
     <header>
-        <div class="logo">
-            <img src="images/logo.png" width="50px" alt="Logo"> <!-- Logo de la página -->
-        </div>
-        <button style="background-color: #FFA800;margin-left: 5%;" onclick="toggleDarkMode()">☀</button> <!-- Botón para cambiar entre modos claro y oscuro -->
+        
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li> <!-- Enlace a la página principal -->
-                <li><a href="about.html">Sobre Nosotros</a></li> <!-- Enlace a la página Sobre Nosotros -->
-                <li><a href="contact.html">Contacto</a></li> <!-- Enlace a la página de Contacto -->
+                <li></li>
+                <li></li>
+                <li></li>
             </ul>
         </nav>
+        
+        
     </header>
-    <div id="searchBar" class="search-bar glassmorphic-container"> <!-- Barra de búsqueda -->
+    <div id="searchBar" class="search-bar glassmorphic-container">
         <div class="cityInput-container">
-            <input type="text" id="cityInput" placeholder="Introduce una ciudad"> <!-- Campo de entrada para la ciudad a buscar -->
+            <input type="text" id="cityInput" placeholder="Introduce una ciudad">
         </div>
         <div class="input-container">
-            <button onclick="buscarClima()">Buscar</button> <!-- Botón para buscar el clima -->
+            <button onclick="buscarClima()">Buscar</button>
         </div>
     </div>
-    
-    <div id="weatherContainer" class="weather-container glassmorphic-container" style="display: none;"> <!-- Contenedor para mostrar los resultados del clima -->
-        <div id="weatherResult" class="weather-result"></div> 
+
+    <div id="weatherContainer" class="weather-container glassmorphic-container" style="display: none;">
+        <div id="weatherResult" class="weather-result"></div>
     </div>
 
+
+    <section id="highlighted-articles">
+        <div class="article-title">
+            <h2>Artículos Destacados</h2>
+        </div>
+        <div id="news-container" class="glassmorphic-container"></div>
+    </section>
+
     <footer>
-        <p>Copyright by Ivan</p> <!-- Pie de página con información de derechos de autor -->
+        <p>Copyright by Ivan</p>
     </footer>
-    <script src="script.js"></script> <!-- Enlaza el archivo de script JavaScript -->
+    <script src="js/script.js"></script>
+    <script src="js/blog.js"></script>
 </body>
 </html>
