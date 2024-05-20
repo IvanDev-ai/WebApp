@@ -117,5 +117,16 @@ function closePopup() {
 document.getElementById('loginBtn').addEventListener('click', openPopup);
 
 
+document.getElementById('switchToLogin').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('registerForm').style.display = 'none';
+    document.getElementById('loginForm').style.display = 'block';
+    document.getElementById('popupTitle').innerText = 'Iniciar Sesión';
+});
 
-
+document.getElementById('switchToRegister').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('loginForm').style.display = 'none';
+    document.getElementById('registerForm').style.display = 'block';
+    document.getElementById('popupTitle').innerText = 'Regístrate!';
+});

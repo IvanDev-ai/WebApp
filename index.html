@@ -17,43 +17,52 @@
             <div class="logo">
                 <img src="images/logo.png" width="50px" alt="Logo">
             </div>
-          <ul class="nav-menu">
-            <li class="nav-item">
-                <a href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a href="about.html">Sobre Nosotros</a>
-            </li>
-            <li class="nav-item">
-                <a href="contact.html">Contacto</a>
-            </li>
-            <li class="nav-item">
-                <div id="Header-buttons">
-                    <!-- Pop-up de login/register -->
-                    <button id="loginBtn" style="background-color: #c7c7c7; margin-right: 5%;">👤</button>
-                    <div id="loginPopup" class="popup glassmorphic-container">
-                        <div class="popup-content">
-                            <span class="close" onclick="closePopup()">&times;</span>
-                            <h2>Regístrate !</h2>
-                            <form id="loginForm">
-                                <input type="email" id="email" placeholder="Correo electrónico" required>
-                                <input type="password" id="password" placeholder="Contraseña" required>
-                                <button type="submit" id="submit" >Crear Cuenta</button>
-                                <a href="#">Ya tienes cuenta? - Login</button>
-                            </form>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html">Sobre Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html">Contacto</a>
+                </li>
+                <li class="nav-item">
+                    <div id="Header-buttons">
+                        <!-- Pop-up de login/register -->
+                        <button id="loginBtn" style="background-color: #c7c7c7; margin-right: 5%;">👤</button>
+                        <div id="loginPopup" class="popup glassmorphic-container">
+                            <div class="popup-content">
+                                <span class="close" onclick="closePopup()">&times;</span>
+                                <h2 id="popupTitle">Regístrate!</h2>
+                                <form id="registerForm">
+                                    <input type="email" id="registerEmail" placeholder="Correo electrónico" required>
+                                    <input type="password" id="registerPassword" placeholder="Contraseña" required>
+                                    <button type="submit" id="registerSubmit">Crear Cuenta</button>
+                                    <a href="#" id="switchToLogin">Ya tienes cuenta? - Login</a>
+                                </form>
+                                <form id="loginForm" style="display: none;">
+                                    <input type="email" id="loginEmail" placeholder="Correo electrónico" required>
+                                    <input type="password" id="loginPassword" placeholder="Contraseña" required>
+                                    <button type="submit" id="loginSubmit">Iniciar Sesión</button>
+                                    <a href="#" id="switchToRegister">No tienes una cuenta? - Regístrate</a>
+                                </form>
+                                <div id="welcomeMessage" style="display:none;">
+                                </div>
+                            </div>
                         </div>
+                        <button style="background-color: #FFA800; margin-left: 5%;"
+                            onclick="toggleDarkMode()">☀</button>
                     </div>
-                    <button style="background-color: #FFA800; margin-left: 5%;" onclick="toggleDarkMode()">☀</button>
-                </div>
-            </li>
-          </ul>
-          <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </div>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </nav>
-      </header>
+    </header>
     <div id="searchBar" class="search-bar glassmorphic-container">
         <div class="cityInput-container">
             <input type="text" id="cityInput" placeholder="Introduce una ciudad">
@@ -81,4 +90,5 @@
     <script src="js/script.js"></script>
     <script src="js/blog.js"></script>
 </body>
+
 </html>

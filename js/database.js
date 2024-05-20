@@ -1,6 +1,6 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
-  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -18,22 +18,44 @@
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-const submit = document.getElementById('submit');
+// Registro
+document.getElementById('registerForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const email = document.getElementById('registerEmail').value;
+  const password = document.getElementById('registerPassword').value;
 
-submit.addEventListener("click", function (event) {
-    event.preventDefault()
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed up 
-            const user = userCredential.user;
-            alert("Cuenta Creada!")
-            // ...
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            alert(errorMessage)
-        });
-})
+  createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+          const user = userCredential.user;
+          alert("Cuenta Creada!");
+          document.getElementById('registerForm').style.display = 'none';
+          document.getElementById('popupTitle').innerText = `Bienvenido, ${email}`;
+          document.getElementById('welcomeMessage').style.display = 'block';
+      })
+      .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert(errorMessage);
+      });
+});
+
+// Inicio de sesión
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const email = document.getElementById('loginEmail').value;
+  const password = document.getElementById('loginPassword').value;
+
+  signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+          const user = userCredential.user;
+          alert("Inicio de sesión exitoso!");
+          document.getElementById('loginForm').style.display = 'none';
+          document.getElementById('popupTitle').innerText = `Bienvenido, ${email}`;
+          document.getElementById('welcomeMessage').style.display = 'block';
+      })
+      .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert("Ese usuario no existe, registrese primero !");
+      });
+});
