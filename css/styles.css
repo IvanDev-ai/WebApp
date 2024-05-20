@@ -98,17 +98,15 @@ footer {
     width: 100%;
     background-color: #35627e59;
     color: #ffedc1;
-    padding: 10px 0;
     text-align: center;
 }
 
 .dark-mode header {
-    background-color: #26465a;
-    color: #2c2d6e;
+    background-color: #26465ae0;
 }
 
 .dark-mode footer {
-    background-color: #26465a;
+    background-color: #26465ae0;
     color: #ffedc1;
 }
 
@@ -122,6 +120,7 @@ body {
     align-items: center;
     background-image: linear-gradient(to bottom, #4d9ed1 70%, #ffffff);
     transition: background-image 0.7s ease;
+    color:#ffedc1;
 }
 
 #darkModeOverlay {
@@ -141,7 +140,7 @@ body {
 }
 
 .search-bar {
-    margin-top: 100px;
+    margin-top: 10%;
     width: 50%;
     display: flex;
     justify-content: space-between;

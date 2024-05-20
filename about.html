@@ -15,6 +15,25 @@
         .dark-mode .content{
             color: #291f1f; 
         }    
+        .content {
+            max-width: 800px;
+            margin: 50px auto;
+            margin-top:10%;
+            padding: 20px;
+            color: #26465a;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .content h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
         @media only screen and (max-width: 768px) {
             /* Estilos para pantallas más pequeñas */
             .content {
@@ -27,25 +46,63 @@
 </head>
 <body>
     <div id="darkModeOverlay"></div> <!-- Div para el modo oscuro -->
-    <header>
-        <div class="logo">
-            <img src="images/logo.png" width="50px" alt="Logo"> <!-- Logo de la página -->
-        </div>
-        <button style="background-color: #FFA800;margin-left: 5%;" onclick="toggleDarkMode()">☀</button> <!-- Botón para cambiar entre modos claro y oscuro -->
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li> <!-- Enlace a la página principal -->
-                <li><a href="about.html">Sobre Nosotros</a></li> <!-- Enlace a la página "Sobre Nosotros" -->
-                <li><a href="contact.html">Contacto</a></li> <!-- Enlace a la página de contacto -->
-            </ul>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="images/logo.png" width="50px" alt="Logo">
+            </div>
+          <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="about.html">Sobre Nosotros</a>
+            </li>
+            <li class="nav-item">
+                <a href="contact.html">Contacto</a>
+            </li>
+            <li class="nav-item">
+                <div id="Header-buttons">
+                    <!-- Pop-up de login/register -->
+                    <button id="loginBtn" style="background-color: #c7c7c7; margin-right: 5%;">👤</button>
+                    <div id="loginPopup" class="popup glassmorphic-container">
+                        <div class="popup-content">
+                            <span class="close" onclick="closePopup()">&times;</span>
+                            <h2>Regístrate !</h2>
+                            <form id="loginForm">
+                                <input type="email" id="email" placeholder="Correo electrónico" required>
+                                <input type="password" id="password" placeholder="Contraseña" required>
+                                <button type="submit" id="submit" >Crear Cuenta</button>
+                                <a href="#">Ya tienes cuenta? - Login</button>
+                            </form>
+                        </div>
+                    </div>
+                    <button style="background-color: #FFA800; margin-left: 5%;" onclick="toggleDarkMode()">☀</button>
+                </div>
+            </li>
+          </ul>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
         </nav>
-    </header>
+      </header>
 
-    <div class="content glassmorphic-container"> <!-- Contenedor del contenido para el texto Sobre Nosotros-->
-        <h1><b>Sobre Nosotros</b></h1> 
-        <p>Somos una empresa especializada en el <b>pronóstico del tiempo</b> y la <b>predicción meteorológica</b>. Con <b>años de experiencia</b> en el campo, ofrecemos servicios de consulta de clima precisos y confiables para satisfacer las necesidades de nuestros clientes.</p> <!-- Párrafo -->
-        <p>Nuestro equipo de meteorólogos <b>altamente cualificados</b> utiliza las últimas tecnologías y datos científicos para proporcionar pronósticos meteorológicos <b>precisos y actualizados</b> en tiempo real. Ya sea para planificar actividades al aire libre, tomar decisiones comerciales o simplemente estar preparado para cualquier cambio en las condiciones climáticas, estamos aquí para <b>ayudarte</b>.</p> <!-- Párrafo -->
-        <p>En nuestra empresa, valoramos la <b>precisión, la fiabilidad y la satisfacción</b> del cliente. Nos esforzamos por ofrecer el mejor servicio posible y mantenernos a la vanguardia de la industria meteorológica.</p> <!-- Párrafo -->
+      <div class="content glassmorphic-container"> <!-- Contenedor del contenido para el texto Sobre Nosotros-->
+        <h1><b>Sobre Nosotros</b></h1>
+        <p>Somos una empresa con una vasta experiencia en el <b>pronóstico del tiempo</b> y la <b>predicción meteorológica</b>. Con <b>décadas de trayectoria</b> en este campo, nos hemos consolidado como líderes en ofrecer servicios de consulta climática <b>precisos</b> y <b>confiables</b>, diseñados para satisfacer las necesidades específicas de nuestros diversos clientes.</p> <!-- Párrafo -->
+        
+        <p>Nuestro equipo de meteorólogos <b>altamente cualificados</b> y con una sólida formación académica utiliza las <b>últimas tecnologías</b> y los <b>datos científicos más avanzados</b> para proporcionar pronósticos meteorológicos que son <b>precisos</b> y <b>actualizados</b> en tiempo real. Esto nos permite ofrecer información detallada y precisa, ya sea para planificar actividades al aire libre, tomar decisiones comerciales críticas o simplemente estar preparado para cualquier cambio en las condiciones climáticas que pudiera ocurrir.</p> <!-- Párrafo -->
+        
+        <p>Además, entendemos que cada cliente tiene necesidades únicas, por lo que adaptamos nuestros servicios para proporcionar <b>pronósticos personalizados</b> que se ajusten a sus requerimientos específicos. Ya sea que necesite información climática para eventos, agricultura, energía, transporte o cualquier otro sector, estamos aquí para <b>ayudarte</b> con datos confiables y precisos.</p> <!-- Párrafo -->
+    
+        <p>En nuestra empresa, no solo valoramos la <b>precisión</b> y la <b>fiabilidad</b>, sino también la <b>satisfacción del cliente</b>. Nos esforzamos continuamente por ofrecer el <b>mejor servicio posible</b>, manteniéndonos a la vanguardia de la industria meteorológica mediante la adopción de nuevas tecnologías y métodos científicos. Nuestra misión es asegurarnos de que nuestros clientes siempre tengan acceso a la mejor información meteorológica disponible.</p> <!-- Párrafo -->
+        
+        <p>Asimismo, creemos firmemente en la <b>innovación</b> y en la mejora constante. Por ello, estamos en un proceso de aprendizaje y adaptación continuo para integrar las <b>últimas tendencias y descubrimientos</b> en el ámbito de la meteorología. Esto nos permite ofrecer servicios que no solo cumplen con los estándares actuales, sino que también anticipan las necesidades futuras de nuestros clientes.</p> <!-- Párrafo -->
+    
+        <p>Comprometidos con la <b>excelencia</b>, hemos establecido una infraestructura robusta que nos permite recopilar, analizar y distribuir información meteorológica de manera <b>eficiente</b> y <b>oportuna</b>. Nuestros sistemas están diseñados para garantizar que cada pronóstico sea lo más preciso posible, reduciendo así cualquier incertidumbre en la toma de decisiones de nuestros clientes.</p> <!-- Párrafo -->
+    
     </div>
     
     <footer>

@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre nosotros - Consulta de Clima</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <style>
         .content {
             max-width: 800px; 
-            margin: 50px auto; /* Margen superior e inferior de 50px y centrado horizontal */
+            margin-top:10%;
+            margin-bottom: 10%;
             padding: 0 20px; /* Espaciado interno de 20px */
             color: #26465a; 
         }        
@@ -19,7 +20,7 @@
             /* Estilos para pantallas más pequeñas */
             .content {
                 width: 80%; 
-                margin-top: 50px; /* Agrega un margen superior para separar del encabezado */
+                margin-top: 30%; /* Agrega un margen superior para separar del encabezado */
                 overflow-y: auto; /* Agrega desplazamiento vertical si el contenido es demasiado grande */
             }
         }
@@ -27,41 +28,84 @@
 </head>
 <body>
     <div id="darkModeOverlay"></div> <!-- Div para el modo oscuro -->
-    <header>
-        <div class="logo">
-            <img src="images/logo.png" width="50px" alt="Logo"> <!-- Logo de la página -->
-        </div>
-        <button style="background-color: #FFA800;margin-left: 5%;" onclick="toggleDarkMode()">☀</button> <!-- Botón para cambiar entre modos claro y oscuro -->
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li> <!-- Enlace a la página principal -->
-                <li><a href="about.html">Sobre Nosotros</a></li> <!-- Enlace a la página "Sobre Nosotros" -->
-                <li><a href="contact.html">Contacto</a></li> <!-- Enlace a la página de contacto -->
-            </ul>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="images/logo.png" width="50px" alt="Logo">
+            </div>
+          <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="about.html">Sobre Nosotros</a>
+            </li>
+            <li class="nav-item">
+                <a href="contact.html">Contacto</a>
+            </li>
+            <li class="nav-item">
+                <div id="Header-buttons">
+                    <!-- Pop-up de login/register -->
+                    <button id="loginBtn" style="background-color: #c7c7c7; margin-right: 5%;">👤</button>
+                    <div id="loginPopup" class="popup glassmorphic-container">
+                        <div class="popup-content">
+                            <span class="close" onclick="closePopup()">&times;</span>
+                            <h2>Regístrate !</h2>
+                            <form id="loginForm">
+                                <input type="email" id="email" placeholder="Correo electrónico" required>
+                                <input type="password" id="password" placeholder="Contraseña" required>
+                                <button type="submit" id="submit" >Crear Cuenta</button>
+                                <a href="#">Ya tienes cuenta? - Login</button>
+                            </form>
+                        </div>
+                    </div>
+                    <button style="background-color: #FFA800; margin-left: 5%;" onclick="toggleDarkMode()">☀</button>
+                </div>
+            </li>
+          </ul>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
         </nav>
-    </header>
+      </header>
 
     <div class="content glassmorphic-container"> <!-- Contenedor del contenido -->
-        <p>¡Hola! ¿Tienes alguna <b>pregunta</b>, <b>comentario</b> o simplemente quieres <b>saludar</b>? ¡Nos encantaría saber de ti! En <b>MeteoExperts</b>, siempre estamos listos para <b>escucharte</b> y <b>ayudarte</b> en lo que necesites.</p> <!-- Párrafo -->
-        <p>Para ponerte en contacto con nuestro equipo, aquí tienes nuestras coordenadas:</p> 
-        <table> <!-- Tabla con la informacion de contacto -->
+        <p>¡Hola! ¿Tienes alguna <b>pregunta</b>, <b>comentario</b> o simplemente quieres <b>saludar</b>? Nos encantaría saber de ti. En <b>ElTiempo</b>, siempre estamos listos para <b>escucharte</b> y <b>ayudarte</b> en lo que necesites. Tu opinión es muy importante para nosotros, y valoramos cada interacción con nuestros clientes y visitantes.</p> <!-- Párrafo -->
+        
+        <p>Para ponerte en contacto con nuestro equipo de expertos, aquí tienes nuestras coordenadas. Estamos disponibles a través de múltiples canales para asegurarnos de que puedas comunicarte con nosotros de la manera que te resulte más conveniente. Ya sea que prefieras una llamada telefónica, un correo electrónico o una visita en persona, estamos aquí para atenderte.</p> <!-- Párrafo -->
+    
+        <table cellpadding="10"> <!-- Tabla con la información de contacto -->
             <tr>
-                <td><b>Teléfono</b></td> 
-                <td><b>Correo electrónico</b></td> 
-                <td><b>Dirección</b></td> 
+                <td><b>Teléfono</b></td>
+                <td><b>Correo electrónico</b></td>
+                <td><b>Dirección</b></td>
             </tr>
             <tr>
-                <td>+123 456 789</td> 
-                <td>info@meteoexperts.com</td> 
-                <td>Calle del Clima, 123</td> 
+                <td>+34 931 10 24 98</td>
+                <td>info@eltiempo.com</td>
+                <td>Calle de Fuerteventura, 457</td>
             </tr>
-        </table> 
-        <p>¡No dudes en <b>contactarnos</b> en cualquier momento! Estamos aquí para ti.</p> 
+        </table> <!-- Tabla -->
+    
+        <p>Si tienes alguna <b>duda</b> o <b>consulta específica</b> sobre nuestros servicios, no dudes en <b>contactarnos</b> a través de nuestro número de teléfono. Nuestro equipo está disponible para responder tus llamadas y proporcionarte la información que necesites de manera rápida y eficiente.</p> <!-- Párrafo -->
+        
+        <p>Para aquellos que prefieren la comunicación escrita, nuestro <b>correo electrónico</b> es una excelente opción. Envía tus preguntas, comentarios o cualquier otra inquietud a <b>info@eltiempo.com</b>, y te responderemos lo antes posible. Nos esforzamos por proporcionar respuestas detalladas y útiles para asegurarnos de que recibas toda la información que necesitas.</p> <!-- Párrafo -->
+    
+        <p>Si te encuentras cerca de nuestra oficina, también puedes visitarnos en persona en nuestra <b>dirección física</b>. Estamos ubicados en <b>Calle de Fuerteventura, 457</b>, y estaremos encantados de recibirte. Ya sea para una consulta en profundidad o simplemente para conocer a nuestro equipo, nuestras puertas están siempre abiertas para ti.</p> <!-- Párrafo -->
+    
+        <p>Además, si tienes sugerencias sobre cómo podemos mejorar nuestros servicios o simplemente quieres darnos tu opinión, ¡no dudes en compartirla con nosotros! En <b>ELTiempo</b>, creemos firmemente en la <b>retroalimentación</b> de nuestros clientes para seguir mejorando y ofreciendo el mejor servicio posible.</p> <!-- Párrafo -->
+    
+        <p>Finalmente, te invitamos a seguirnos en nuestras <b>redes sociales</b> para estar al tanto de las últimas novedades, pronósticos y actualizaciones sobre nuestros servicios. A través de nuestras plataformas digitales, compartimos contenido relevante y útil que puede ayudarte a tomar decisiones informadas sobre el clima. Estamos aquí para ti, y esperamos poder servirte de la mejor manera posible.</p> <!-- Párrafo -->
+    
+        <p>¡No dudes en <b>contactarnos</b> en cualquier momento! Estamos aquí para ti, listos para asistirte y proporcionarte el soporte que necesitas. Tu satisfacción es nuestra prioridad, y nos esforzamos por ofrecer una experiencia de cliente excepcional en cada interacción.</p> <!-- Párrafo -->
     </div>
+    
     
     <footer>
         <p>Copyright by Ivan</p> <!-- Pie de página con información de derechos de autor -->
     </footer>
-    <script src="script.js"></script> <!-- Enlaza el archivo de script JavaScript -->
+    <script src="js/script.js"></script> <!-- Enlaza el archivo de script JavaScript -->
 </body>
 </html>
