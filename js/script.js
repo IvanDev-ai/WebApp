@@ -1,31 +1,33 @@
+// Obtener los elementos del DOM para el menú hamburguesa y el menú de navegación
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 
+// Agregar un evento de clic al menú hamburguesa
 hamburger.addEventListener("click", mobileMenu);
 
+// Función para alternar el menú de navegación en dispositivos móviles
 function mobileMenu() {
     hamburger.classList.toggle("active");
     navMenu.classList.toggle("active");
 }
 
-
-
+// Obtener todos los enlaces de navegación
 const navLink = document.querySelectorAll(".nav-link");
 
+// Agregar un evento de clic a cada enlace de navegación
 navLink.forEach(n => n.addEventListener("click", closeMenu));
 
+// Función para cerrar el menú de navegación
 function closeMenu() {
     hamburger.classList.remove("active");
     navMenu.classList.remove("active");
 }
 
-
-// Cuando el DOM está completamente cargado
+// Ejecutar el código cuando el DOM esté completamente cargado
 document.addEventListener("DOMContentLoaded", function() {
-    // Obtener elementos del DOM
+    // Obtener elementos del DOM para la barra de búsqueda y el contenedor de clima
     const searchBar = document.getElementById("searchBar");
     const weatherContainer = document.getElementById("weatherContainer");
-
 
     // Ocultar el contenedor de clima al inicio
     weatherContainer.style.display = "none";
@@ -77,17 +79,18 @@ function buscarClima() {
                     `;
                 });
 
+                // Mostrar el contenedor de clima
                 const weatherContainer = document.getElementById("weatherContainer");
                 weatherContainer.style.display = "flex";
             })
             .catch(error => {
-                // Por si da error al hacer la solicitud 
+                // Manejar errores al hacer la solicitud
                 console.error('Error al obtener el clima:', error);
                 const weatherResult = document.getElementById('weatherResult');
                 weatherResult.innerHTML = '<p>Ocurrió un error al obtener el clima. Por favor, intenta nuevamente.</p>';
             });
     } else {
-        // Alerta si no se escribe ninguna  ciudad
+        // Mostrar una alerta si no se ingresó ninguna ciudad
         alert('Por favor, introduce una ciudad.');
     }
 }
@@ -95,28 +98,27 @@ function buscarClima() {
 // Función para alternar el modo oscuro
 function toggleDarkMode() {
     const body = document.body;
-    body.classList.toggle('dark-mode'); // Alternar la clase 'dark-mode' en el body, que hace que cambien todos, cambiando asi su bg-color y color
+    body.classList.toggle('dark-mode'); // Alternar la clase 'dark-mode' en el body
 
-    // Esto sirve para alternar de color el bgcolor del body, ya que, al ser un degradado de bg-image en el css, lo de arriba no lo cambiaría.
+    // Alternar la opacidad del overlay para el modo oscuro
     const darkModeOverlay = document.getElementById('darkModeOverlay');
     darkModeOverlay.style.opacity = body.classList.contains('dark-mode') ? '0.5' : '0';
 }
 
-
-// Función para abrir el pop-up
+// Función para abrir el pop-up de inicio de sesión/registro
 function openPopup() {
     document.getElementById('loginPopup').style.display = 'block';
 }
 
-// Función para cerrar el pop-up
+// Función para cerrar el pop-up de inicio de sesión/registro
 function closePopup() {
     document.getElementById('loginPopup').style.display = 'none';
 }
 
-// Escucha el clic en el botón de login/register
+// Escuchar el clic en el botón de login/register
 document.getElementById('loginBtn').addEventListener('click', openPopup);
 
-
+// Alternar entre el formulario de registro y el de inicio de sesión
 document.getElementById('switchToLogin').addEventListener('click', function(event) {
     event.preventDefault();
     document.getElementById('registerForm').style.display = 'none';
